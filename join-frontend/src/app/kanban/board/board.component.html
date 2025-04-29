@@ -1,0 +1,156 @@
+<section>
+  <div class="head-container">
+    <div class="board-and-btn">
+      <h1>Board</h1>
+      <button style="display: none;" class="add-task-btn mobile-add-task-btn" (click)="openAddTaskDialog()"><img
+          src="assets/icons/plus-btn.svg" alt=""></button>
+    </div>
+    <div class="head-content">
+      <mat-form-field>
+        <input matInput placeholder="Find Task" [(ngModel)]="searchQuery"
+        (input)="filterTasks()">
+        <button matSuffix mat-icon-button (click)="filterTasks()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+      <button class="add-task-btn" (click)="openAddTaskDialog()"> <span>Add task</span> <img
+          src="assets/icons/plus-btn.svg" alt=""></button>
+    </div>
+  </div>
+
+  <div class="main-content" cdkDropListGroup>
+    <!-- To Do -->
+    <div class="kanban-row" id="todo" cdkDropList [cdkDropListData]="tasks.todo" (cdkDropListDropped)="drop($event)">
+      <div class="row-headline-box"><span>To do</span><button mat-icon-button class="add-icon"
+          (click)="openAddTaskDialog()"><mat-icon>add_box</mat-icon></button></div>
+      <div class="card-box">
+        <mat-card *ngFor="let task of tasks.todo" [cdkDragData]="task" cdkDrag appearance="outlined"
+          (click)="openTaskDialog(task)" style="cursor: pointer;">
+          <mat-card-content>
+            <div [ngStyle]="{
+          'background-color': task.category === 'User_Story' ? '#0038FF' : '#1FD7C1'
+        }" class="user-category">{{ formatCategoryName(task.category )}}</div>
+            <h2 class="user-title">{{ task.title }}</h2>
+            <h3 class="user-description">{{ task.description }}</h3>
+            <div class="progress-bar" *ngIf="task.subtasks && task.subtasks.length > 0">
+              <mat-progress-bar class="example-margin" mode="determinate"
+                [value]="calculateProgress(task.subtasks)"></mat-progress-bar>
+              <span class="subtask-conunt">{{ inProgressSubtasksCount(task.subtasks) }}/{{ task.subtasks.length }}
+                Subtasks</span>
+            </div>
+            <div class="card-bottom-container">
+              <div class="circle-container">
+                <div class="small-circle" *ngFor="let contact of task.assignedContacts"
+                  [style.background-color]="getContactColor(contact)"><span>{{ getInitials(contact)}}</span></div>
+              </div>
+              <div>{{changeToUppercase(task.priority)}}</div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="empty-container" *ngIf="tasks.todo.length === 0">No tasks To do</div>
+    </div>
+
+
+    <!-- In Progress -->
+    <div class="kanban-row" id="inProgress" cdkDropList [cdkDropListData]="tasks.inProgress"
+      (cdkDropListDropped)="drop($event)">
+      <div class="row-headline-box"><span>In progress</span><button mat-icon-button class="add-icon"
+          (click)="openAddTaskDialog()"><mat-icon>add_box</mat-icon></button></div>
+      <div class="card-box">
+        <mat-card *ngFor="let task of tasks.inProgress" [cdkDragData]="task" cdkDrag appearance="outlined"
+          (click)="openTaskDialog(task)" style="cursor: pointer;">
+          <mat-card-content>
+            <div [ngStyle]="{
+          'background-color': task.category === 'User_Story' ? '#0038FF' : '#1FD7C1'
+        }" class="user-category">{{ formatCategoryName(task.category )}}</div>
+            <h2 class="user-title">{{ task.title }}</h2>
+            <h3 class="user-description">{{ task.description }}</h3>
+            <div class="progress-bar" *ngIf="task.subtasks && task.subtasks.length > 0">
+              <mat-progress-bar class="example-margin" mode="determinate"
+                [value]="calculateProgress(task.subtasks)"></mat-progress-bar>
+              <span class="subtask-conunt">{{ inProgressSubtasksCount(task.subtasks) }}/{{ task.subtasks.length }}
+                Subtasks</span>
+            </div>
+            <div class="card-bottom-container">
+              <div class="circle-container">
+                <div class="small-circle" *ngFor="let contact of task.assignedContacts"
+                  [style.background-color]="getContactColor(contact)"><span>{{ getInitials(contact)}}</span></div>
+              </div>
+              <div>{{changeToUppercase(task.priority)}}</div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="empty-container" *ngIf="tasks.inProgress.length === 0">No tasks in Progress</div>
+    </div>
+
+    <!-- Await Feedback -->
+    <div class="kanban-row" id="awaitFeedback" cdkDropList [cdkDropListData]="tasks.awaitFeedback"
+      (cdkDropListDropped)="drop($event)">
+      <div class="row-headline-box"><span>Await Feedback</span><button mat-icon-button class="add-icon"
+          (click)="openAddTaskDialog()"><mat-icon>add_box</mat-icon></button></div>
+      <div class="card-box">
+        <mat-card *ngFor="let task of tasks.awaitFeedback" [cdkDragData]="task" cdkDrag appearance="outlined"
+          (click)="openTaskDialog(task)" style="cursor: pointer;">
+          <mat-card-content>
+            <div [ngStyle]="{
+          'background-color': task.category === 'User_Story' ? '#0038FF' : '#1FD7C1'
+        }" class="user-category">{{ formatCategoryName(task.category )}}</div>
+            <h2 class="user-title">{{ task.title }}</h2>
+            <h3 class="user-description">{{ task.description }}</h3>
+            <div class="progress-bar" *ngIf="task.subtasks && task.subtasks.length > 0">
+              <mat-progress-bar class="example-margin" mode="determinate"
+                [value]="calculateProgress(task.subtasks)"></mat-progress-bar>
+              <span class="subtask-conunt">{{ inProgressSubtasksCount(task.subtasks) }}/{{ task.subtasks.length }}
+                Subtasks</span>
+            </div>
+            <div class="card-bottom-container">
+              <div class="circle-container">
+                <div class="small-circle" *ngFor="let contact of task.assignedContacts"
+                  [style.background-color]="getContactColor(contact)"><span>{{ getInitials(contact)}}</span></div>
+              </div>
+              <div>{{changeToUppercase(task.priority)}}</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="empty-container" *ngIf="tasks.awaitFeedback.length === 0">No tasks for Feedback</div>
+    </div>
+
+    <!-- Done -->
+    <div style="padding-bottom: 28px;" class="kanban-row" id="done" cdkDropList [cdkDropListData]="tasks.done" (cdkDropListDropped)="drop($event)">
+      <div class="row-headline-box"><span>Done</span><button mat-icon-button class="add-icon"
+          (click)="openAddTaskDialog()"><mat-icon>add_box</mat-icon></button></div>
+      <div class="card-box">
+        <mat-card *ngFor="let task of tasks.done" [cdkDragData]="task" cdkDrag appearance="outlined"
+          (click)="openTaskDialog(task)" style="cursor: pointer;">
+          <mat-card-content>
+            <div [ngStyle]="{
+          'background-color': task.category === 'User_Story' ? '#0038FF' : '#1FD7C1'
+        }" class="user-category">{{ formatCategoryName(task.category )}}</div>
+            <h2 class="user-title">{{ task.title }}</h2>
+            <h3 class="user-description">{{ task.description }}</h3>
+            <div class="progress-bar" *ngIf="task.subtasks && task.subtasks.length > 0">
+              <mat-progress-bar class="example-margin" mode="determinate"
+                [value]="calculateProgress(task.subtasks)"></mat-progress-bar>
+              <span class="subtask-conunt">{{ inProgressSubtasksCount(task.subtasks) }}/{{ task.subtasks.length }}
+                Subtasks</span>
+            </div>
+            <div class="card-bottom-container">
+              <div class="circle-container">
+                <div class="small-circle" *ngFor="let contact of task.assignedContacts"
+                  [style.background-color]="getContactColor(contact)"><span>{{ getInitials(contact)}}</span></div>
+              </div>
+              <div>{{changeToUppercase(task.priority)}}</div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="empty-container" *ngIf="tasks.done.length === 0">No tasks Done</div>
+    </div>
+  </div>
+</section>

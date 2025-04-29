@@ -1,0 +1,64 @@
+<div class="centered-container">
+  <div class="top-container">
+    <div class="logo-container">
+      <img src="assets/img/logo.svg" alt="Logo" class="logo">
+    </div>
+    <div class="sign-up-container">
+      <span>Not a Join User?</span>
+      <button [routerLink]="'/sign-up'">Sign up</button>
+    </div>
+  </div>
+
+  <mat-card class="login-container" appearance="outlined">
+    <mat-card-title>
+      <h1 class="title">Log in</h1>
+      <div class="line"></div>
+    </mat-card-title>
+    <mat-card-content>
+      <div class="input-container">
+
+        <!-- Email Field -->
+        <mat-form-field>
+          <input type="email" id="email" matInput [formControl]="emailFormControl" placeholder="Email" />
+          <mat-icon matSuffix>mail</mat-icon>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Password Field -->
+        <mat-form-field>
+          <input type="password" id="password" matInput [formControl]="passwordFormControl" placeholder="Password" />
+          <mat-icon matSuffix>lock</mat-icon>
+          <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+            Password must be at least 6 characters long
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Buttons -->
+      <div class="button-group">
+        <button class="login-btn" mat-flat-button [disabled]="loginForm.invalid" (click)="onSubmit()">
+          Login
+        </button>
+        <button (click)="onGuestLogin()" class="guest-btn" mat-stroked-button [routerLink]="'/kanban/summary'">
+          Guest Log in
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div class="links">
+    <span>
+      <a href="http://localhost:4200/kanban/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+    </span>
+    <span>
+      <a href="http://localhost:4200/kanban/legal-notice" target="_blank" rel="noopener noreferrer">Legal Notice</a>
+    </span>
+  </div>
+</div>

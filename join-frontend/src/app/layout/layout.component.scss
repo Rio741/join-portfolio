@@ -1,0 +1,71 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Header */
+  app-header {
+    position: fixed;
+    top: 0;
+    left: 232px;
+    width: 100%;
+    height: 96px;
+    z-index: 1000;
+    background-color: #f8f9fa; /* Beispielhintergrundfarbe */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Sidenav */
+  app-sidenav {
+    position: fixed;
+    top: 96px;
+    left: 0;
+    width: 232px;
+    height: calc(100% - 96px);
+    z-index: 999;
+    background-color: #ffffff;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Main Content */
+  main {
+    margin-left: 232px;
+    margin-top: 96px;
+    flex: 1;
+    overflow-y: auto;
+    background-color: #f4f5f7; /* Beispielhintergrundfarbe */
+    transition: margin 0.3s ease-in-out;
+  }
+  
+  /* Mobile Version */
+  @media (max-width: 1080px) {
+    :host {
+      flex-direction: column;
+    }
+  
+    /* Header bleibt oben */
+    app-header {
+      height: 80px;
+    }
+  
+    /* Sidenav wird nach unten verschoben */
+    app-sidenav {
+      position: fixed;
+      top: unset;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+  
+    /* Main Content */
+    main {
+      margin-left: 0;
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+  }
+  

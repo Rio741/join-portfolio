@@ -1,0 +1,38 @@
+<section>
+    <div class="left-container">
+        <div class="left-content">
+            <img src="assets/img/logo-sidebar.svg" alt="">
+            <h1>Edit contact</h1>
+            <div class="line"></div>
+        </div>
+
+    </div>
+    <div class="right-container">
+        <button class="close-btn" mat-icon-button (click)="closeDialog()"><mat-icon>close</mat-icon></button>
+        <div [style.background-color]="contact.color" class="big-circle"><span>{{getInitials(contact.name)}}</span>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <input type="text" matInput [(ngModel)]="contact.name" placeholder="Name" />
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="email" matInput [(ngModel)]="contact.email" placeholder="Email" />
+                <mat-icon matSuffix>mail</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="tel" matInput [(ngModel)]="contact.phone_number" placeholder="Phone" />
+                <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+
+            <div class="button-group">
+                <button type="button" class="delete-btn" (click)="deleteContact(contact)">Delete</button>
+                <button type="submit" class="save-btn" mat-stroked-button (click)="saveChanges()">Save</button>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,206 @@
+::ng-deep.mat-mdc-text-field-wrapper {
+  background-color: white !important;
+  cursor: pointer;
+  border-radius: 10px !important;
+  border: solid 1px #D1D1D1;
+}
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.logo-container {
+  position: absolute;
+  animation: logoAnimation 2s forwards;
+  z-index: 999;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  /* Startgröße */
+}
+
+@keyframes logoAnimation {
+  0% {
+    transform: scale(3) translate(-50%, -50%);  /* Logo größer und in der Mitte */
+    left: 50%;
+    top: 50%;
+  }
+  100% {
+    transform: scale(1) translate(0, 0);  /* Logo originalgröße und oben links */
+    left: 5%;  /* Logo nach oben links verschieben */
+    top: 5%;  /* Logo nach oben verschieben */
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;  /* Zuerst unsichtbar */
+  }
+  100% {
+    opacity: 1;  /* Am Ende sichtbar */
+  }
+}
+
+.top-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  span {
+    color: #2A3647;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  button {
+    background-color: #2A3647;
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+  }
+}
+
+.sign-up-container{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 5%;
+}
+
+.login-container {
+  width: 90%;
+  max-width: 600px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background: white;
+  border: none;
+  gap: 20px;
+  opacity: 0;  /* Starten mit unsichtbar */
+  animation: fadeIn 2s 0.5s forwards;
+}
+
+mat-card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  background-color: #29ABE2;
+  height: 2px;
+  width: 120px;
+  border-radius: 20px;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 70%;
+}
+
+.button-group {
+  display: flex;
+  gap: 32px;
+}
+
+.login-btn {
+  background-color: #2A3647 !important;
+  color: white !important;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.guest-btn {
+  color: #2A3647 !important;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+
+  a {
+    text-decoration: none;
+    color: #A8A8A8;
+    cursor: pointer;
+
+    &:hover {
+      color: #29ABE2;
+      font-weight: 500;
+    }
+  }
+}
+
+@media (max-width: 660px) {
+  .top-container {
+  
+    span {
+      font-size: 16px;
+    }
+  
+    button {
+      padding: 8px;
+    }
+  }
+
+  .logo {
+    width: 64px;
+  }
+
+  .sign-up-container{
+    flex-direction: column;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .login-btn {
+    padding: 8px;
+  }
+  
+  .guest-btn {
+    padding: 8px;
+  }
+
+  .input-container {
+    gap: 10px;
+    width: 100%; 
+  }
+
+  .login-container {
+    padding: 20px 0;
+  }
+}

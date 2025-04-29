@@ -1,0 +1,78 @@
+<section>
+    <div class="headline">
+        <h1>Join 360</h1>
+        <div class="line"></div>
+        <h2>Key Metrics at a Glance</h2>
+    </div>
+
+    <div class="dashboard-content">
+        <div class="metrics-container" *ngIf="!showNameContainer">
+            <div class="metrics-double-box">
+                <div class="box" [routerLink]="'/kanban/board'">
+                    <div class="circle">
+                        <img src="assets/icons/todo-1.svg" alt="">
+                    </div>
+                    <div class="box-description">
+                        <span class="count">{{todoTasks}}</span>
+                        <span class="kind">To-do</span>
+                    </div>
+                </div>
+                <div class="box" [routerLink]="'/kanban/board'">
+                    <div class="circle">
+                        <img src="assets/icons/done-1.svg" alt="">
+                    </div>
+                    <div class="box-description">
+                        <span class="count">{{doneTasks}}</span>
+                        <span class="kind">Done</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-long-box" [routerLink]="'/kanban/board'">
+                <div class="img-box">
+                    <img src="assets/icons/urgent.svg" alt="">
+                    <div class="box-description">
+                        <span class="count">{{prioTasks}}</span>
+                        <span class="kind">Urgent</span>
+                    </div>
+                </div>
+                <div class="line-box"></div>
+                <div class="info-box">
+                    <span class="date">{{upcomingDate}}</span>
+                    <span class="info">Upcoming deadline</span>
+                </div>
+            </div>
+
+            <div class="metrics-triple-box">
+                <div class="box" [routerLink]="'/kanban/board'">
+                    <div class="box-description">
+                        <span class="count">{{tasksInBoard}}</span>
+                        <span class="kind">Tasks in <br> Board</span>
+                    </div>
+                </div>
+                <div class="box" [routerLink]="'/kanban/board'">
+                    <div class="box-description">
+                        <span class="count">{{inProgressTasks}}</span>
+                        <span class="kind">Tasks in <br> Progress</span>
+                    </div>
+                </div>
+                <div class="box" [routerLink]="'/kanban/board'">
+                    <div class="box-description">
+                        <span class="count">{{awaitingFeedbackTasks}}</span>
+                        <span class="kind">Awaiting <br>Feedback</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="name-container">
+            <span class="greeting">{{ greeting }},</span>
+            <span class="name">{{convertedName}}</span>
+        </div>
+    </div>
+    <div *ngIf="showNameContainer" class="mobile-name-container"
+    [class.visible]="showNameContainer">
+        <span class="greeting">{{ greeting }},</span>
+        <span class="name">{{convertedName}}</span>
+    </div>
+</section>

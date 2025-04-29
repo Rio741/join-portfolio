@@ -1,0 +1,134 @@
+::ng-deep.mat-mdc-text-field-wrapper {
+  background-color: white !important;
+  cursor: pointer;
+  border-radius: 10px !important;
+  border: solid 1px #D1D1D1;
+}
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f9f9f9;
+  gap:20px;
+  
+}
+
+.logo-container {
+  display: flex;
+  align-self: flex-start;
+padding-left: 5%;
+padding-top: 32px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.arrow-back {
+  position: absolute;
+  top: 50px;
+  left: 32px;
+  color: #29ABE2;
+  cursor: pointer;
+}
+
+.signup-container {
+  width: 90%;
+  max-width: 600px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background: white;
+  border: none;
+  gap: 20px;
+}
+
+mat-card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  background-color: #29ABE2;
+  height: 2px;
+  width: 120px;
+  border-radius: 20px;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 70%;
+}
+
+.signup-btn {
+  background-color: #2A3647 !important;
+  color: white !important;
+  font-size: 21px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 26px;
+  cursor: pointer;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  padding-bottom: 20px;
+
+  a {
+    text-decoration: none;
+    color: #A8A8A8;
+    cursor: pointer;
+
+    &:hover {
+      color: #29ABE2;
+      font-weight: 500;
+    }
+  }
+}
+
+.checkbox-link {
+  color: #29ABE2;
+}
+
+@media (max-width: 660px) {
+
+  .input-container {
+    width: 100%;
+    gap: 0;
+  }
+
+  .signup-container{
+    padding: 20px 0;
+  }
+
+  .signup-btn {
+    font-size: 18px;
+    padding: 16px;
+  }
+
+  .logo {
+    width: 64px;
+  }
+
+  .arrow-back {
+    left: 6%;
+  }
+}

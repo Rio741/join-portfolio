@@ -1,0 +1,139 @@
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 232px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 96px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.headline {
+    font-size: 16px;
+    margin-left: 68px;
+}
+
+.help-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.button-container {
+    display: flex;
+    gap: 16px;
+    margin-right: 38px;
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
+    width: 56px;
+    border-radius: 100%;
+    border: solid 3px #2A3647;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #e2e1e1;
+    }
+}
+
+.initials {
+    color: #29ABE2;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+::ng-deep.menu {
+    background-color: #2A3647 !important;
+    border-radius: 20px 0 20px 20px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: 18px;
+}
+
+::ng-deep.menu-option {
+    color: #CDCDCD !important;
+    font-size: 16px;
+
+    &:hover {
+        background-color: #091931 !important;
+    }
+}
+
+.mat-mdc-menu-item {
+    padding: 0 26px;
+}
+
+.help-option{
+    display: none !important;
+}
+
+@media (max-width: 1080px) {
+    header {
+        left: 0;
+        width: 100%;
+        height: 80px;
+        justify-content: space-between;
+    }
+
+    .help-container{
+        display: none;
+    }
+
+    .logo-container{
+        display: flex !important;
+        margin-left: 16px;
+    }
+
+    .logo{
+        width: 32px;
+    }
+
+    .headline {
+       display: none;
+    }
+
+    .button-container {
+        margin-right: 16px;
+    }
+
+    .circle {
+        height: 40px;
+        width: 40px;
+        border-width: 2px;
+    }
+
+    .initials {
+        font-size: 18px;
+    }
+
+    ::ng-deep.menu-option {
+        font-size: 14px;
+    }
+
+    .mat-mdc-menu-item {
+        padding: 0 16px;
+    }
+
+    .help-option{
+        display: flex !important;
+    }
+}

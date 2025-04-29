@@ -1,0 +1,134 @@
+.sidenav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 232px;
+    background-color: #2A3647;
+    z-index: 999;
+}
+
+.logo-container {
+    height: 120px;
+    width: 100px;
+    margin: 66px 0;
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.page-container {
+    color: #CDCDCD;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .page-field {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        padding-left: 60px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+            background-color: #0d2446;
+        }
+
+        &.active {
+            background-color: #091931;
+            color: white;
+            cursor: default;
+        }
+    }
+}
+
+.links {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    color: #A8A8A8;
+    margin-bottom: 66px;
+
+    span {
+        cursor: pointer;
+
+        &:hover {
+            color: #29ABE2;
+        }
+    }
+}
+
+.legal-page-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 8px 0;
+
+    &.active {
+        background-color: #091931;
+    }
+}
+
+/* Mobile Version */
+@media (max-width: 1080px) {
+    .sidenav {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: unset;
+        height: 80px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0;
+    }
+
+    .logo-container {
+       display: none;
+    }
+
+    .page-container {
+        display: flex;
+        justify-content: space-around;
+        gap: 0;
+        flex-direction: row;
+
+        .page-field{
+            padding: 8px;
+            flex-direction: column;
+            justify-content: center;
+            width: 68px;
+
+            span{
+                font-size: 14px;
+            }
+
+            img{
+                height: 24px;
+            }
+
+            &.active {
+                padding: 8px;
+                border-radius: 16px;
+            }
+        }
+    }
+
+    .links {
+        display: none;
+    }
+}

@@ -1,0 +1,52 @@
+# Bytecode-Dateien
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtuelle Umgebung
+env/
+venv/
+ENV/
+.VENV/
+
+# Django spezifisch
+*.sqlite3
+db.sqlite3
+
+# Konfigurationsdateien
+*.env
+.env
+
+# Static-Dateien
+/staticfiles/
+/media/
+
+# Migrations-Dateien
+**/migrations/__pycache__/
+**/migrations/*.pyc
+**/migrations/*.pyo
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# PyCharm
+.idea/
+
+# Coverage/Testing
+htmlcov/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+
+# Python Egg
+*.egg
+*.egg-info/
+dist/
+build/

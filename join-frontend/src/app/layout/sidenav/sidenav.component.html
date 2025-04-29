@@ -1,0 +1,32 @@
+<div class="sidenav">
+    <div class="logo-container">
+        <img src="assets/img/logo-sidebar.svg" alt="Logo" class="logo">
+    </div>
+
+    <div class="page-container" *ngIf="authService.isLoggedIn()">
+        <div class="page-field" [routerLink]="'/kanban/summary'" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+            <img src="assets/icons/summary.svg" alt=""><span>Summary</span>
+        </div>
+        <div class="page-field" [routerLink]="'/kanban/add-task'" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+            <img src="assets/icons/add-task.svg" alt=""><span>Add Task</span>
+        </div>
+        <div class="page-field" [routerLink]="'/kanban/board'" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+            <img src="assets/icons/board.svg" alt=""><span>Board</span>
+        </div>
+        <div class="page-field" [routerLink]="'/kanban/contacts'" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+            <img src="assets/icons/contacts.svg" alt=""><span>Contacts</span>
+        </div>
+    </div>
+
+    <div class="links">
+        <div class="legal-page-field" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span
+                [routerLink]="'/kanban/privacy-policy'">Privacy Policy</span></div>
+        <div class="legal-page-field" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> <span
+                [routerLink]="'/kanban/legal-notice'">Legal Notice</span></div>
+
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<section>
+    <div class="left-container">
+        <div class="left-content">
+            <img src="assets/img/logo-sidebar.svg" alt="" />
+            <h1>Add contact</h1>
+            <h2>Tasks are better with a team!</h2>
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="right-container">
+        <button class="close-btn" mat-icon-button (click)="closeDialog()">
+            <mat-icon>close</mat-icon>
+        </button>
+        <div class="big-circle">
+            <img src="assets/icons/add-person.svg" alt="" class="person-icon" />
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <input type="text" id="name" matInput placeholder="Name" [(ngModel)]="contact.name" name="name" [pattern]="'^[A-Za-zÄÖÜäöüß]+$'" required />
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+              
+
+            <mat-form-field>
+                <input type="email" id="email" matInput placeholder="Email" [(ngModel)]="contact.email" name="email" />
+                <mat-icon matSuffix>mail</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" id="phone" matInput placeholder="Phone" [(ngModel)]="contact.phone_number"
+                    name="phone_number" />
+                <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+
+            <div class="button-group">
+                <button type="button" class="cancel-btn" (click)="closeDialog()">
+                    Cancel<mat-icon>clear</mat-icon>
+                </button>
+                <button type="submit" class="create-btn" mat-stroked-button (click)="createContact()">
+                    Create contact <img src="assets/icons/check-btn.svg" alt="" />
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
