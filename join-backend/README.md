@@ -22,7 +22,7 @@ Dieses Projekt ist das Backend für das **Join Kanbanboard**, entwickelt mit Dja
 - `git`
 - Optional: `venv` oder `pipenv` für virtuelle Umgebungen
 
-## ⚙️ Installation
+## ⚙️ Installation (locale Umgebung)
 1. Repository klonen:
    ```bash
    git clone https://github.com/Rio741/join-portfolio.git
