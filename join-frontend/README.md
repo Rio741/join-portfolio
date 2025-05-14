@@ -25,7 +25,7 @@ Dies ist das **Frontend** für das **Join Kanbanboard**, entwickelt mit [Angular
 - npm (wird mit Node.js installiert)
 - Angular CLI (`@angular/cli`)
 
-## ⚙️ Installation (locale Umgebung)
+## ⚙️ Installation (lokale Umgebung)
 
 1. Repository klonen:
    ```bash
