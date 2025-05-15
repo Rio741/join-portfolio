@@ -1,14 +1,14 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { provideHttpClient, withFetch } from '@angular/common/http'; // Importiere HttpClient und withFetch
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
-// Erweiterung der appConfig, um den HttpClient mit fetch zu konfigurieren
+
 const updatedAppConfig = {
   ...appConfig,
   providers: [
-    ...appConfig.providers, // Behalte die bestehenden Provider bei
-    provideHttpClient(withFetch()) // Füge die HttpClient-Konfiguration hinzu
+    ...appConfig.providers,
+    provideHttpClient(withFetch())
   ]
 };
 
