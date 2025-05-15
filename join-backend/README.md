@@ -51,4 +51,4 @@ Erstelle im Hauptverzeichnis des Projekts (dort, wo auch manage.py liegt) eine D
 ```bash
 DJANGO_SECRET_KEY=dein-geheimer-key
 ```
-🔒 Achte darauf, dass der DJANGO_SECRET_KEY lang, zufällig und sicher ist. Du kannst z. B. diesen Generator nutzen.
+🔒 Achte darauf, dass der `DJANGO_SECRET_KEY` lang, zufällig und sicher ist. Du kannst z. B. [diesen Generator](https://djecrety.ir/)nutzen.
