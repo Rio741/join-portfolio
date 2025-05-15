@@ -12,16 +12,19 @@ from django.contrib.auth.models import User
 
 
 class UserProfileList(generics.ListCreateAPIView):
+    """Listet alle UserProfile oder erstellt ein neues."""
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
 
 class UserProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+    """Zeigt, aktualisiert oder löscht ein bestimmtes UserProfile."""
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
 
 class RegistrationView(APIView):
+    """Registriert einen neuen Benutzer und gibt ein Token zurück."""
     permission_classes = [AllowAny]
 
     def post(self, request):
@@ -37,9 +40,10 @@ class RegistrationView(APIView):
             }
             return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
 
 class CustomLoginView(ObtainAuthToken):
+    """Authentifiziert einen Benutzer und gibt ein Token zurück."""
     permission_classes = [AllowAny]
 
     def post(self, request):
@@ -49,7 +53,7 @@ class CustomLoginView(ObtainAuthToken):
             user = serializer.validated_data['user']
             token, created = Token.objects.get_or_create(user=user)
             data = {
-                'token' : token.key,
+                'token': token.key,
                 'username': user.username,
                 'email': user.email,
             }
@@ -57,9 +61,10 @@ class CustomLoginView(ObtainAuthToken):
             data = serializer.errors
             raise AuthenticationFailed('Invalid login credentials')
         return Response(data)
-    
+
 
 class GuestLoginView(APIView):
+    """Loggt einen Gastnutzer ein (bzw. erstellt ihn) und gibt ein Token zurück."""
     permission_classes = [AllowAny]
 
     def post(self, request):
@@ -69,4 +74,3 @@ class GuestLoginView(APIView):
         )
         token, created = Token.objects.get_or_create(user=guest_user)
         return Response({'access': token.key, 'username': guest_user.username, 'email': guest_user.email})
- 

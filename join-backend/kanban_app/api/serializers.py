@@ -3,12 +3,16 @@ from kanban_app.models import Task, Subtask, Contact
 
 
 class SubtaskSerializer(serializers.ModelSerializer):
+    """Serializer für Subtask-Model."""
+    
     class Meta:
         model = Subtask
         fields = ['id', 'title', 'status']
 
 
 class TaskSerializer(serializers.ModelSerializer):
+    """Serializer für Task-Model mit verschachtelten Subtasks."""
+    
     subtasks = SubtaskSerializer(many=True, required=False)
 
     class Meta:
@@ -17,6 +21,7 @@ class TaskSerializer(serializers.ModelSerializer):
                   'dueDate', 'priority', 'category', 'subtasks', 'status']
 
     def create(self, validated_data):
+        """Erstellt eine Task mit zugehörigen Subtasks."""
         subtasks_data = validated_data.pop('subtasks', [])
         task = Task.objects.create(**validated_data)
         for subtask_data in subtasks_data:
@@ -24,13 +29,16 @@ class TaskSerializer(serializers.ModelSerializer):
         return task
 
     def update(self, instance, validated_data):
+        """Aktualisiert eine Task und ihre Subtasks."""
         subtasks_data = validated_data.pop('subtasks', None)
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
         instance.save()
+
         if subtasks_data is not None:
             existing_subtasks = list(instance.subtasks.all())
             existing_ids = {subtask.id for subtask in existing_subtasks}
+
             for subtask_data in subtasks_data:
                 subtask_id = subtask_data.get('id')
                 if subtask_id in existing_ids:
@@ -41,15 +49,18 @@ class TaskSerializer(serializers.ModelSerializer):
                     subtask.save()
                 else:
                     Subtask.objects.create(task=instance, **subtask_data)
-            new_ids = {subtask.get('id')
-                       for subtask in subtasks_data if subtask.get('id')}
+
+            new_ids = {sub.get('id') for sub in subtasks_data if sub.get('id')}
             for subtask in existing_subtasks:
                 if subtask.id not in new_ids:
                     subtask.delete()
+
         return instance
 
 
 class ContactSerializer(serializers.ModelSerializer):
+    """Serializer für Contact-Model."""
+    
     class Meta:
         model = Contact
         fields = ['id', 'name', 'email', 'phone_number', 'color']

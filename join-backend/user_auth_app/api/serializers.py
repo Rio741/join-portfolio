@@ -6,12 +6,14 @@ from rest_framework.exceptions import ValidationError
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    """Serialisiert das UserProfile-Modell."""
     class Meta:
         model = UserProfile
         fields = ['user', 'bio', 'location']
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
+    """Serializer für die Benutzerregistrierung mit Passwortabgleich."""
 
     repeated_password = serializers.CharField(write_only=True)
 
@@ -42,8 +44,10 @@ class RegistrationSerializer(serializers.ModelSerializer):
         account.save()
         return account
 
-    
+
 class LoginSerializer(serializers.Serializer):
+    """Serializer für Login mit E-Mail und Passwort."""
+    
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
 
