@@ -1,35 +1,30 @@
 body {
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: #F6F7F8;
-    max-width: 1960px;
-    margin: 0
-  }
-
-  /* Allgemeiner Stil für den Scrollbalken */
-::-webkit-scrollbar {
-  width: 12px; /* Breite des Scrollbalkens */
-  height: 12px; /* Höhe des horizontalen Scrollbalkens */
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #F6F7F8;
+  max-width: 1960px;
+  margin: 0
 }
 
-/* Hintergrund des Scrollbalkens */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
 ::-webkit-scrollbar-track {
   background: #f0f0f0;
   border-radius: 10px;
 }
 
-/* Farbe des Scrollbalkens */
 ::-webkit-scrollbar-thumb {
-  background-color: #888; /* Farbe */
-  border-radius: 10px; /* Abgerundete Kanten */
-  border: 3px solid #f0f0f0; /* Abstand zwischen Balken und Track */
+  background-color: #888;
+  border-radius: 10px;
+  border: 3px solid #f0f0f0;
 }
 
-/* Hover-Effekt */
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
 
-/* Optional: Stil für den horizontalen Scrollbalken */
 ::-webkit-scrollbar-horizontal {
   height: 8px;
 }
