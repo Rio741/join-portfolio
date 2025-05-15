@@ -40,3 +40,15 @@ Dieses Projekt ist das Backend für das **Join Kanbanboard**, entwickelt mit Dja
 5. Entwicklungsserver starten:
    ```bash
    python manage.py runserver
+
+## 🔐 Umgebungsvariablen
+
+Dieses Projekt verwendet eine .env-Datei, um sensible Konfigurationen wie den SECRET_KEY sicher und flexibel zu verwalten. Diese Datei wird nicht mit dem Repository geteilt (siehe .gitignore), sondern muss lokal erstellt werden.
+
+## 📄 Beispiel für eine .env-Datei
+Erstelle im Hauptverzeichnis des Projekts (dort, wo auch manage.py liegt) eine Datei mit dem Namen .env und folgendem Inhalt:
+
+```bash
+DJANGO_SECRET_KEY=dein-geheimer-key
+```
+🔒 Achte darauf, dass der DJANGO_SECRET_KEY lang, zufällig und sicher ist. Du kannst z. B. diesen Generator nutzen.
