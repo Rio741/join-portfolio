@@ -17,18 +17,20 @@ import { AuthService } from '../../services/auth.service';
 })
 
 export class LogInComponent implements OnInit {
+
   showContainer = false;
+  showPassword = false;
+
+  constructor(private authService: AuthService, private router: Router) { }
+
   ngOnInit(): void {
     setTimeout(() => {
-      // CSS-Klasse für Animation hinzufügen (falls nicht direkt über CSS animiert wird)
       const logo = document.querySelector('.logo');
       if (logo) {
         logo.classList.add('animate-logo');
       }
-    }, 100); // Verzögerung, um sicherzustellen, dass das Element geladen ist
+    }, 100);
   }
-
-  constructor(private authService: AuthService, private router: Router) { }
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),

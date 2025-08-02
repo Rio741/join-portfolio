@@ -78,7 +78,8 @@
                         <mat-icon>done</mat-icon>
                     </button>
                     <!-- Button, um bearbeiteten Subtask zu speichern -->
-                    <button type="button" matSuffix mat-icon-button *ngIf="editingIndex !== null" (click)="updateSubtask()">
+                    <button type="button" matSuffix mat-icon-button *ngIf="editingIndex !== null"
+                        (click)="updateSubtask()">
                         <mat-icon>done</mat-icon>
                     </button>
                 </mat-form-field>
@@ -94,7 +95,8 @@
                     </div>
                 </div>
 
-                <div class="mobile-required-text" style="display: none;"><span class="star">*</span><span>This field is required</span></div>
+                <div class="mobile-required-text" style="display: none;"><span class="star">*</span><span>This field is
+                        required</span></div>
             </div>
         </div>
 
@@ -105,9 +107,12 @@
                     <button type="button" class="clear-btn" (click)="clearForm(taskForm)">
                         Clear <mat-icon>clear</mat-icon>
                     </button>
-                    <button type="submit" class="create-btn" mat-stroked-button [disabled]="!taskForm.valid">
-                        Create Task <img src="assets/icons/check-btn.svg" alt="">
-                    </button>
+                    <span matTooltip="Please fill out all required fields" [matTooltipDisabled]="taskForm.valid"
+                        matTooltipShowDelay="0" matTooltipPosition="above">
+                        <button type="submit" class="create-btn" mat-stroked-button [disabled]="!taskForm.valid">
+                            Create Task <img src="assets/icons/check-btn.svg" alt="">
+                        </button>
+                    </span>
                 </div>
             </div>
         </div>

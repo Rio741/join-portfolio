@@ -31,8 +31,13 @@
 
         <!-- Password Field -->
         <mat-form-field>
-          <input type="password" id="password" matInput [formControl]="passwordFormControl" placeholder="Password" />
-          <mat-icon matSuffix>lock</mat-icon>
+          <input [type]="showPassword ? 'text' : 'password'" id="password" matInput [formControl]="passwordFormControl"
+            placeholder="Password" />
+          <button mat-icon-button matSuffix (click)="showPassword = !showPassword"
+            [attr.aria-label]="'Toggle password visibility'" [attr.aria-pressed]="showPassword">
+            <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+          </button>
+
           <mat-error *ngIf="passwordFormControl.hasError('required')">
             Password is <strong>required</strong>
           </mat-error>

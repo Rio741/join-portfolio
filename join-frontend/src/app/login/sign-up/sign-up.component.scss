@@ -11,15 +11,15 @@
   justify-content: space-around;
   align-items: center;
   background-color: #f9f9f9;
-  gap:20px;
-  
+  gap: 20px;
+
 }
 
 .logo-container {
   display: flex;
   align-self: flex-start;
-padding-left: 5%;
-padding-top: 32px;
+  padding-left: 5%;
+  padding-top: 32px;
 }
 
 .logo {
@@ -115,7 +115,7 @@ mat-card-content {
     gap: 0;
   }
 
-  .signup-container{
+  .signup-container {
     padding: 20px 0;
   }
 

@@ -27,6 +27,9 @@ export class SignUpComponent {
   dialogRef: any;
   isRegistrationSuccessful = false;
   isChecked = false;
+  showPassword = false;
+  showConfirmPassword = false;
+
   signupForm = new FormGroup(
     {
       username: new FormControl('', [Validators.required, Validators.minLength(3), this.nameValidator]),
@@ -43,9 +46,29 @@ export class SignUpComponent {
   }
 
   matchPasswordValidator(group: AbstractControl): ValidationErrors | null {
-    const password = group.get('password')?.value;
-    const confirmPassword = group.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { passwordMismatch: true };
+    const passCtrl = group.get('password');
+    const confirmCtrl = group.get('confirmPassword');
+
+    if (!passCtrl || !confirmCtrl) return null;
+
+    const pass = passCtrl.value;
+    const confirm = confirmCtrl.value;
+    const errors = confirmCtrl.errors || {};
+
+    if (!confirm) {
+      delete errors['passwordMismatch'];
+      confirmCtrl.setErrors(Object.keys(errors).length ? errors : null);
+      return null;
+    }
+
+    if (pass !== confirm) {
+      confirmCtrl.setErrors({ ...errors, passwordMismatch: true });
+      return { passwordMismatch: true };
+    }
+
+    delete errors['passwordMismatch'];
+    confirmCtrl.setErrors(Object.keys(errors).length ? errors : null);
+    return null;
   }
 
   nameValidator(control: AbstractControl): ValidationErrors | null {
@@ -77,7 +100,6 @@ export class SignUpComponent {
   onSubmit() {
     if (this.signupForm.valid) {
       const { username, email, password, confirmPassword } = this.signupForm.value;
-      // console.log('Signup data:', { username, email, password, confirmPassword });
     } else {
       console.log('Form is invalid');
     }

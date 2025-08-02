@@ -1,11 +1,3 @@
-// .mat-mdc-icon-button {
-//     position: absolute !important;
-//     right: 6px;
-//     bottom: 6px;
-// }
-
-
-
 section {
     display: flex;
     flex-direction: column;
@@ -62,14 +54,6 @@ section {
     border: solid 1px #D1D1D1;
 }
 
-// ::ng-deep.mat-mdc-form-field-infix {
-//     padding-top: 12px !important;
-// }
-
-// ::ng-deep.mat-mdc-form-field-icon-suffix {
-//     padding: 0px 0px 8px 4px !important;
-// }
-
 mat-button-toggle {
     width: 100%;
 }
@@ -101,21 +85,15 @@ mat-label {
         border-radius: 10px;
         height: 28px;
 
-        // Icons ausblenden, wenn nicht gehobert wird
         .subtask-icons {
             display: none;
-            // Hier kannst du noch weitere Styles für die Icons anpassen
         }
 
         &:hover {
             background-color: #D1D1D1;
 
-            // Icons sichtbar machen, wenn über die Subtask gehobert wird
             .subtask-icons {
                 display: flex;
-
-
-
             }
         }
     }
@@ -185,7 +163,7 @@ mat-label {
     }
 }
 
-mat-label{
+mat-label {
     padding-top: 12px;
 }
 
@@ -195,81 +173,80 @@ mat-label{
 
 @media (max-width: 1080px) {
 
-    section{
-      overflow-y: auto;
-    height: 80vh;  
-    padding: 32px;
+    section {
+        overflow-y: auto;
+        height: 80vh;
+        padding: 32px;
     }
 
-   .input-container{
-    flex-direction: column;
-    gap: 0;
-    
-   }
+    .input-container {
+        flex-direction: column;
+        gap: 0;
 
-   .parting-line{
-    display: none;
-    gap: 0;
-   }
+    }
 
-   .required-text{
-    display: none;
-   }
+    .parting-line {
+        display: none;
+        gap: 0;
+    }
 
-   .mobile-required-text{
-    display: flex !important;
-    padding-bottom: 50px;
-   }
+    .required-text {
+        display: none;
+    }
 
-   .bottom-field{
-    justify-content: flex-end;
-    position: absolute;
-    bottom: 0;
-    left: 32px;
-    right: 32px;
-    padding: 12px 0;
-    background-color: #F6F7F8;
-   }
+    .mobile-required-text {
+        display: flex !important;
+        padding-bottom: 50px;
+    }
 
-   .headline{
-    padding-bottom: 16px;
-   }
+    .bottom-field {
+        justify-content: flex-end;
+        position: absolute;
+        bottom: 0;
+        left: 32px;
+        right: 32px;
+        padding: 12px 0;
+        background-color: #F6F7F8;
+    }
 
-   
+    .headline {
+        padding-bottom: 16px;
+    }
 }
 
 @media (max-width: 560px) {
 
-section{
-    height: 100%;
-    width: 100vw;
-    border-radius: 0;
-}
-
-.input-container{
-    border-radius: 0;
-    padding: 0 18px;
-}
-
-.input-section-left{
-    width: auto;
-
-}
-
-.input-section-right{
-    width: auto;
-}
-
-.headline{
-    padding: 0 18px;
-    padding-bottom: 16px;
-    h1{
-
-        font-size: 48px;
+    section {
+        height: 100%;
+        width: 100vw;
+        border-radius: 0;
     }
-}
 
-.bottom-field{
-    right: 48px;
-}
+    .input-container {
+        border-radius: 0;
+        padding: 0 18px;
+    }
+
+    .input-section-left {
+        width: auto;
+
+    }
+
+    .input-section-right {
+        width: auto;
+    }
+
+    .headline {
+        padding: 0 18px;
+        padding-bottom: 16px;
+
+        h1 {
+
+            font-size: 48px;
+        }
+    }
+
+    .bottom-field {
+        right: 48px;
+    }
 }

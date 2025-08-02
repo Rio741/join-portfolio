@@ -10,7 +10,8 @@
         <h2 class="user-title">{{ task.title }}</h2>
         <h3 class="user-description">{{ task.description }}</h3>
         <div class="date-container"><span class="title-color">Due date:</span><span>{{task.dueDate}}</span></div>
-        <div class="priority-container"><span class="title-color">Priority:</span><span>{{changeToUppercase(task.priority)}}</span></div>
+        <div class="priority-container"><span
+                class="title-color">Priority:</span><span>{{changeToUppercase(task.priority)}}</span></div>
 
         <div class="contact-container">
             <span class="title-color">Assigned To:</span>
@@ -69,12 +70,14 @@
                 <mat-label>Contacts</mat-label>
                 <mat-form-field>
                     <mat-select placeholder="Select contacts to assign" [(ngModel)]="task.assignedContacts"
-                        name="contacts" multiple>
+                        name="assignedContacts" multiple [compareWith]="compareContacts">
+
                         <mat-option *ngFor="let contact of contacts" [value]="contact">
                             {{ contact.name }}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
+
             </div>
 
             <div class="input-section-right">
@@ -107,22 +110,19 @@
                 <mat-form-field>
                     <input [ngModelOptions]="{standalone: true}" #input matInput placeholder="Add new subtask"
                         [(ngModel)]="inputSubtask" (focus)="onInputFocus()" (blur)="onInputBlur()">
-                    <!-- Button, um neuen Subtask hinzuzufügen -->
+
                     <button type="button" matSuffix mat-icon-button *ngIf="!isInputFocused && editingIndex === null"
                         (mousedown)="addSubtask()">
                         <mat-icon>add</mat-icon>
                     </button>
-                    <!-- Button, um Eingabefeld zu leeren -->
                     <button type="button" matSuffix mat-icon-button *ngIf="isInputFocused && editingIndex === null"
                         (mousedown)="clearInputField()">
                         <mat-icon>clear</mat-icon>
                     </button>
-                    <!-- Button, um neuen Subtask hinzuzufügen -->
                     <button type="button" matSuffix mat-icon-button *ngIf="isInputFocused && editingIndex === null"
                         (mousedown)="addSubtask()">
                         <mat-icon>done</mat-icon>
                     </button>
-                    <!-- Button, um bearbeiteten Subtask zu speichern -->
                     <button type="button" matSuffix mat-icon-button *ngIf="editingIndex !== null"
                         (click)="updateSubtask()">
                         <mat-icon>done</mat-icon>

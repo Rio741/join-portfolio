@@ -16,7 +16,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { ContactService } from '../../services/contact.service';
 
-
 @Component({
   selector: 'app-task-dialog',
   providers: [provideNativeDateAdapter(), TaskService],
@@ -32,13 +31,10 @@ export class TaskDialogComponent implements OnInit {
   isInputFocused: boolean = false;
   inputSubtask: string = '';
   createdSubtasks: { id: number; title: string; status: 'in-progress' | 'completed' }[] = [];
-
   AnewSubtasks: { title: string, status: 'in-progress' | 'completed' }[] = [];
   editingIndex: number | null = null;
-
   contacts: Contact[] = [];
   selectedContacts: string[] = [];
-
   isEditMode: boolean = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<TaskDialogComponent>,
@@ -89,7 +85,6 @@ export class TaskDialogComponent implements OnInit {
     }
   }
 
-
   updateSubtaskStatus(taskId: number, subtask: any): void {
     const newStatus = subtask.status === 'done' ? 'inProgress' : 'done';
     this.taskService.updateSubtaskStatus(subtask.id, newStatus).subscribe(
@@ -118,7 +113,6 @@ export class TaskDialogComponent implements OnInit {
     const lastInitial = nameParts[1]?.charAt(0).toUpperCase() || '';
     return `${firstInitial}${lastInitial}`;
   }
-
 
   getContactColor(contact: any): string {
     if (typeof contact === 'object' && contact.color) {
@@ -206,7 +200,6 @@ export class TaskDialogComponent implements OnInit {
     }
   }
 
-
   clearInputField() {
     this.inputSubtask = '';
   }
@@ -227,4 +220,8 @@ export class TaskDialogComponent implements OnInit {
       this.inputSubtask = '';
     }
   }
+
+  compareContacts = (c1: any, c2: any) => {
+    return c1 && c2 && c1.id === c2.id;
+  };
 }

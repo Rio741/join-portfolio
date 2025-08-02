@@ -85,7 +85,7 @@ export class SummaryComponent implements OnInit {
   }
 
   formatDate(date: any): string {
-    return new Date(date).toLocaleDateString('de-DE', {
+    return new Date(date).toLocaleDateString('en-US', {
       weekday: 'long',
       year: 'numeric',
       month: 'long',

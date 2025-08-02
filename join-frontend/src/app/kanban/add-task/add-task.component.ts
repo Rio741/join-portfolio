@@ -16,13 +16,14 @@ import { TaskService } from '../../services/task.service';
 import { ContactService } from '../../services/contact.service';
 import { Contact } from '../../models/contact.model';
 import { Router } from '@angular/router';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-add-task',
   providers: [provideNativeDateAdapter(), TaskService],
   imports: [MatSelectModule, MatButtonModule, MatIconModule, MatInputModule,
     MatFormFieldModule, MatListModule, CommonModule, FormsModule, MatSelectModule,
-    MatCheckboxModule, MatButtonToggleModule, ReactiveFormsModule, MatDatepickerModule],
+    MatCheckboxModule, MatButtonToggleModule, ReactiveFormsModule, MatDatepickerModule, MatTooltipModule],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss'
 })
@@ -33,7 +34,7 @@ export class AddTaskComponent implements OnInit {
   selectedContacts: string[] = [];
   newSubtask: string = '';
   newSubtasks: string[] = [];
-  selectedSubtasks: { title: string, status: 'in-progress' | 'completed' }[] = []; 
+  selectedSubtasks: { title: string, status: 'in-progress' | 'completed' }[] = [];
   editingIndex: number | null = null;
   contacts: Contact[] = [];
 
@@ -118,11 +119,11 @@ export class AddTaskComponent implements OnInit {
   onInputFocus(): void {
     this.isInputFocused = true;
   }
-  
+
   onInputBlur(): void {
     this.isInputFocused = false;
   }
-  
+
   addSubtask() {
     if (this.newSubtask.trim() !== '') {
       this.newSubtasks.push(this.newSubtask.trim());
@@ -151,5 +152,3 @@ export class AddTaskComponent implements OnInit {
     }
   }
 }
-
-

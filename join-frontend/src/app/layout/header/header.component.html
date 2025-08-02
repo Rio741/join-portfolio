@@ -11,7 +11,8 @@
             <span class="initials">{{userInitials}}</span>
         </div>
         <mat-menu #belowMenu="matMenu" xPosition="before" class="menu">
-            <button class="help-option" [routerLink]="'/kanban/help-page'" mat-menu-item class="menu-option">Help</button>
+            <button class="help-option" [routerLink]="'/kanban/help-page'" mat-menu-item
+                class="menu-option">Help</button>
             <button [routerLink]="'/kanban/legal-notice'" mat-menu-item class="menu-option">Legal Notice</button>
             <button [routerLink]="'/kanban/privacy-policy'" mat-menu-item class="menu-option">Privacy Policy</button>
             <button mat-menu-item class="menu-option" (click)="logout()">Logout</button>

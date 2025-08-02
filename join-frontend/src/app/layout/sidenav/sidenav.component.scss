@@ -98,7 +98,7 @@
     }
 
     .logo-container {
-       display: none;
+        display: none;
     }
 
     .page-container {
@@ -107,17 +107,17 @@
         gap: 0;
         flex-direction: row;
 
-        .page-field{
+        .page-field {
             padding: 8px;
             flex-direction: column;
             justify-content: center;
             width: 68px;
 
-            span{
+            span {
                 font-size: 14px;
             }
 
-            img{
+            img {
                 height: 24px;
             }
 

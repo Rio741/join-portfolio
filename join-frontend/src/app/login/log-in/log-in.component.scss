@@ -23,28 +23,29 @@
 .logo {
   width: 100px;
   height: auto;
-  /* Startgröße */
 }
 
 @keyframes logoAnimation {
   0% {
-    transform: scale(3) translate(-50%, -50%);  /* Logo größer und in der Mitte */
+    transform: scale(3) translate(-50%, -50%);
     left: 50%;
     top: 50%;
   }
+
   100% {
-    transform: scale(1) translate(0, 0);  /* Logo originalgröße und oben links */
-    left: 5%;  /* Logo nach oben links verschieben */
-    top: 5%;  /* Logo nach oben verschieben */
+    transform: scale(1) translate(0, 0);
+    left: 5%;
+    top: 5%;
   }
 }
 
 @keyframes fadeIn {
   0% {
-    opacity: 0;  /* Zuerst unsichtbar */
+    opacity: 0;
   }
+
   100% {
-    opacity: 1;  /* Am Ende sichtbar */
+    opacity: 1;
   }
 }
 
@@ -71,7 +72,7 @@
   }
 }
 
-.sign-up-container{
+.sign-up-container {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -87,7 +88,7 @@
   background: white;
   border: none;
   gap: 20px;
-  opacity: 0;  /* Starten mit unsichtbar */
+  opacity: 0;
   animation: fadeIn 2s 0.5s forwards;
 }
 
@@ -164,11 +165,11 @@ mat-card-content {
 
 @media (max-width: 660px) {
   .top-container {
-  
+
     span {
       font-size: 16px;
     }
-  
+
     button {
       padding: 8px;
     }
@@ -178,7 +179,7 @@ mat-card-content {
     width: 64px;
   }
 
-  .sign-up-container{
+  .sign-up-container {
     flex-direction: column;
   }
 
@@ -190,14 +191,14 @@ mat-card-content {
   .login-btn {
     padding: 8px;
   }
-  
+
   .guest-btn {
     padding: 8px;
   }
 
   .input-container {
     gap: 10px;
-    width: 100%; 
+    width: 100%;
   }
 
   .login-container {

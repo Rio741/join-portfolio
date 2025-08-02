@@ -163,75 +163,74 @@ mat-label {
 
 @media (max-width: 1080px) {
 
-    section{
+    section {
         padding: 32px;
     }
-    
 }
 
 @media (max-width: 760px) {
 
-.input-container{
-    flex-direction: column;
-    gap: 0;
-}
+    .input-container {
+        flex-direction: column;
+        gap: 0;
+    }
 
-.input-section-left{
-    width: auto;
-}
+    .input-section-left {
+        width: auto;
+    }
 
-.input-section-right{
-    width: auto;
-}
+    .input-section-right {
+        width: auto;
+    }
 
-.parting-line{
-    display: none;
-}
+    .parting-line {
+        display: none;
+    }
 
-.bottom-field{
-    flex-direction: column;
-}
+    .bottom-field {
+        flex-direction: column;
+    }
 
-.clear-btn{
-    font-size: 18px;
-    padding: 0 12px;
-}
+    .clear-btn {
+        font-size: 18px;
+        padding: 0 12px;
+    }
 
-.create-btn{
-    font-size: 18px;
-    padding: 12px;
-}
+    .create-btn {
+        font-size: 18px;
+        padding: 12px;
+    }
 
-.button-group{
-    justify-content: flex-end;
-    position: fixed;
-    bottom: 80px;
-    right: 0;
-    padding: 12px 12px;
-    width: 100%;
-    background-color: #F6F7F8;
-}
+    .button-group {
+        justify-content: flex-end;
+        position: fixed;
+        bottom: 80px;
+        right: 0;
+        padding: 12px 12px;
+        width: 100%;
+        background-color: #F6F7F8;
+    }
 
-.mobile-required-text{
-    display: flex !important;
-    padding-bottom: 54px;
-}
+    .mobile-required-text {
+        display: flex !important;
+        padding-bottom: 54px;
+    }
 
-.required-text{
-    display: none;
-}
+    .required-text {
+        display: none;
+    }
 }
 
 @media (max-width: 560px) {
 
-    section{
+    section {
         padding: 12px;
     }
 
-    .headline{
+    .headline {
         padding-bottom: 24px;
 
-        h1{
+        h1 {
             font-size: 48px;
         }
     }

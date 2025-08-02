@@ -42,7 +42,6 @@ export class BoardComponent implements OnInit {
   };
   searchQuery: string = '';
 
-
   ngOnInit(): void {
     this.loadTasks();
   }
@@ -72,7 +71,7 @@ export class BoardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.loadTasks();
-      } 
+      }
     });
   }
 
@@ -85,7 +84,7 @@ export class BoardComponent implements OnInit {
       if (result) {
         this.loadTasks();
         this.deleteTask(result);
-      } 
+      }
     });
   }
 

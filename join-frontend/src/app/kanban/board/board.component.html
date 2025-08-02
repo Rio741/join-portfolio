@@ -7,8 +7,7 @@
     </div>
     <div class="head-content">
       <mat-form-field>
-        <input matInput placeholder="Find Task" [(ngModel)]="searchQuery"
-        (input)="filterTasks()">
+        <input matInput placeholder="Find Task" [(ngModel)]="searchQuery" (input)="filterTasks()">
         <button matSuffix mat-icon-button (click)="filterTasks()">
           <mat-icon>search</mat-icon>
         </button>
@@ -121,7 +120,8 @@
     </div>
 
     <!-- Done -->
-    <div style="padding-bottom: 28px;" class="kanban-row" id="done" cdkDropList [cdkDropListData]="tasks.done" (cdkDropListDropped)="drop($event)">
+    <div style="padding-bottom: 28px;" class="kanban-row" id="done" cdkDropList [cdkDropListData]="tasks.done"
+      (cdkDropListDropped)="drop($event)">
       <div class="row-headline-box"><span>Done</span><button mat-icon-button class="add-icon"
           (click)="openAddTaskDialog()"><mat-icon>add_box</mat-icon></button></div>
       <div class="card-box">

@@ -1,5 +1,3 @@
-
-
 <div class="centered-container">
   <div class="logo-container">
     <img src="assets/img/logo.svg" alt="Logo" class="logo">
@@ -20,9 +18,10 @@
           <mat-error *ngIf="nameFormControl.hasError('required')">
             Name is <strong>required</strong>
           </mat-error>
-          <mat-error *ngIf="nameFormControl.hasError('name') && !nameFormControl.hasError('required')">
-            Please enter a valid name
+          <mat-error *ngIf="nameFormControl.hasError('invalidName') && !nameFormControl.hasError('required')">
+            Please enter <strong>first and last name</strong>
           </mat-error>
+
         </mat-form-field>
 
         <!-- Email Field -->
@@ -38,9 +37,13 @@
         </mat-form-field>
 
         <!-- Password Field -->
-        <mat-form-field class="example-full-width">
-          <input type="password" id="password" placeholder="Password" matInput [formControl]="passwordFormControl" />
-          <mat-icon matSuffix>lock</mat-icon>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" placeholder="Password" matInput
+            [formControl]="passwordFormControl" />
+          <button mat-icon-button matSuffix (click)="showPassword = !showPassword"
+            [attr.aria-label]="'Toggle password visibility'" [attr.aria-pressed]="showPassword">
+            <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+          </button>
           <mat-error *ngIf="passwordFormControl.hasError('required')">
             Password is <strong>required</strong>
           </mat-error>
@@ -49,18 +52,22 @@
           </mat-error>
         </mat-form-field>
 
-        <!-- Confirm Password Field -->
-        <mat-form-field class="example-full-width">
-          <input type="password" id="confirm-password" placeholder="Confirm Password" matInput
-            [formControl]="confirmPasswordFormControl" />
-          <mat-icon matSuffix>lock</mat-icon>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input [type]="showConfirmPassword ? 'text' : 'password'" id="confirm-password" placeholder="Confirm Password"
+            matInput [formControl]="confirmPasswordFormControl" />
+          <button mat-icon-button matSuffix (click)="showConfirmPassword = !showConfirmPassword"
+            [attr.aria-label]="'Toggle password visibility'" [attr.aria-pressed]="showConfirmPassword">
+            <mat-icon>{{ showConfirmPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+          </button>
           <mat-error *ngIf="confirmPasswordFormControl.hasError('required')">
             Password confirmation is <strong>required</strong>
           </mat-error>
-          <mat-error *ngIf="signupForm.hasError('passwordMismatch')">
+          <mat-error *ngIf="confirmPasswordFormControl.hasError('passwordMismatch')">
             Passwords do not match
           </mat-error>
         </mat-form-field>
+
       </div>
 
       <mat-checkbox required [(ngModel)]="isChecked" name="isChecked" #isCheckedControl="ngModel">
